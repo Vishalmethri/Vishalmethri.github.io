@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie</title>
+    <link rel="icon" href="images/logo.png">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--Animate on Scroll CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!--Material ICON CSS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Swiper CSS-->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!--Local Homepage CSS-->
+    <link rel="stylesheet" href="css/Homepage.css">
+    <!--Local Playback CSS-->
+    <link rel="stylesheet" href="css/playback.css">
+    <link rel="stylesheet" href="css/cast.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Swiper JS-->
+    <script src="js/swiper.min.js"></script>
+    <script src="js/check.js"></script>
+</head>
+<body>
+        <!--Navbar Start-->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top justify-content-center bg-faded" style="background-color: #045de9;
+        background-image: linear-gradient(315deg, #6aff07 0%, #294b03 74%);">
+          <a class="navbar-brand" href="#" style="color:rgb(255, 255, 255);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); font-size: 19px;"><img src="images/logo.png" alt="Logo" style="width: 40px;">Hydra</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="afterLogin.html" style="color:rgb(255, 255, 255);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100);">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="signout()" href="#" style="color:rgb(255, 255, 255);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100);">Log-out</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:rgb(255, 255, 255);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100);">
+                  
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="changeDisplayName.html">Change Display Name</a>
+                  <!--<a class="dropdown-item" href="#">TV-Series</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Anime</a>-->
+                </div>
+              </li>
+              <!--
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>-->
+            </ul>
+          </div>
+        </nav>
+        <!--Navbar End-->
+    
+    
+        <!--Video Playeback Start-->
+        <div class="embed-responsive embed-responsive-21by9 z-depth-1" style="margin-top: 60px;;">
+        <iframe class="embed-responsive-item" id="content" src="https://drive.google.com/file/d/1ObuSQag0WPb9Wna_arBHM27OopLDgvkq/preview" allowfullscreen="allowfullscreen"></iframe>
+        </div>
+        <hr style="background-color: rgb(238, 255, 0);">
+        <h1 style="text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); font-weight: bold; color: greenyellow; text-align: center;" data-aos="fade-right" id="movieName"></h1>
+        <hr style="background-color: rgb(238, 255, 0);">
+        <!--Video Playback End-->
+    
+    
+    
+    
+    
+        <!--Cast and other details START-->
+        <div data-aos="fade-right" style="margin-left: 3%;">
+            <h1 style="color:rgb(255, 255, 255);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100);"><b>Description</b></h1>
+            <p style="color:rgb(255, 255, 255);" id="description"></p>
+            <!--IMDB Rating Start-->
+            <div id="imdb">
+            <!--<span style="color:rgb(255, 255, 255);" class="imdbRatingPlugin" data-user="ur108994486" data-title="tt4154796" data-style="p3"><a href="https://www.imdb.com/title/tt4154796/?ref_=plg_rt_1"><img src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_37x18.png" alt=" Avengers: Endgame(2019) on IMDb" />
+            </a></span><script>(function(d,s,id){var js,stags=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js";stags.parentNode.insertBefore(js,stags);})(document,"script","imdb-rating-api");</script>-->
+          </div>
+          <!--IMBD Rating END-->
+            <h3><h1 style="color:rgb(255, 255, 255);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100)">CAST</h1><p style="color: rgb(255, 255, 255);" id="cast"></p></h3>
+        </div>
+        <!--Cast Details END-->
+        
+        
+        
+    
+        <!--Slider Start-->
+        <hr style="background-color: rgb(238, 255, 0);">
+    <h1 style="text-align: center;" data-aos="fade-right"><a href="#" style="text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); font-weight: bold; color: greenyellow; text-align: center;">Movies</a></h1>
+      <hr style="background-color: rgb(238, 255, 0);">
+    <div class="wrapper">
+          <!--Movie Slider START-->
+          <div class="swiper-container" data-aos="fade-right">
+            <div class="swiper-wrapper" id="slider">
+              <div class="swiper-slide" id="movie1" onclick="setMovieSession(this.id)">
+                  <div class="imgBx">
+                    <a href="#"><img src="images/Endgame.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                  </div>
+                  <div class="details">
+                    <h1>Avengers: Endgame</h1>
+                  </div>
+              </div>
+              <div class="swiper-slide" id="movie2" onclick="setMovieSession(this.id)">
+                  <div class="imgBx">
+                    <a href="#"><img src="images/hobbs.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                  </div>
+                  <div class="details">
+                    <h1>Fast and Furious: Hobbs and Shaw</h1>
+                  </div>
+              </div>
+              <div class="swiper-slide" id="movie3" onclick="setMovieSession(this.id)">
+                  <div class="imgBx">
+                    <a href="#"><img src="images/farfromhome.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                  </div>
+                  <div class="details">
+                    <h1>Spider-Man: Far From Home</h1>
+                  </div>
+              </div>
+              <div class="swiper-slide" id="movie4" onclick="setMovieSession(this.id)">
+                  <div class="imgBx">
+                    <a href="#"><img src="images/homecoming.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                  </div>
+                  <div class="details">
+                    <h1>Spider-Man: Homecoming</h1>
+                  </div>
+              </div>
+              <div class="swiper-slide" id="movie5" onclick="setMovieSession(this.id)">
+                <div class="imgBx">
+                  <a href="#"><img src="images/LionKing.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                </div>
+                <div class="details">
+                  <h1>The Lion King</h1>
+                </div>
+              </div>
+              <div class="swiper-slide" id="movie6" onclick="setMovieSession(this.id)">
+                <div class="imgBx">
+                  <a href="#"><img src="images/toystory.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                </div>
+                <div class="details">
+                  <h1>Toy Story 4</h1>
+                </div>
+              </div>
+              <div class="swiper-slide" id="movie7" onclick="setMovieSession(this.id)">
+                  <div class="imgBx">
+                    <a href="#"><img src="images/Now-You-See-Me-promo-poster.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                  </div>
+                  <div class="details">
+                    <h1>Now You See Me</h1>
+                  </div>
+              </div>
+              <div class="swiper-slide" id="movie8" onclick="setMovieSession(this.id)">
+                <div class="imgBx">
+                  <a href="#"><img src="images/batmanvsSuperman.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                </div>
+                <div class="details">
+                  <h1>Batman v Superman: Dawn of Justice</h1>
+                </div>
+              </div>
+              <div class="swiper-slide" id="movie9" onclick="setMovieSession(this.id)">
+                <div class="imgBx">
+                  <a href="#"><img src="images/oceans8.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+                </div>
+                <div class="details">
+                  <h1>Ocean's 8</h1>
+                </div>
+              </div>
+          </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <!--<button id="btn" type="button" style="width: 100px; height: 60px; margin-left: 47%; background-color: #043783; color: white;">ADD</button>-->
+        </div>
+        <!--MOvie Slider END-->
+    
+    
+<!--TV Series Slider START-->
+<hr style="background-color: rgb(238, 255, 0);">
+<h1 style="text-align: center;" data-aos="fade-right"><a href="#" style="text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); font-weight: bold; color: greenyellow; text-align: center;">TV-Series</a></h1>
+<hr style="background-color: rgb(238, 255, 0);">
+<div class="wrapper">
+  <!--Movie Slider START-->
+  <div class="swiper-container" data-aos="fade-right">
+    <div class="swiper-wrapper" id="slider">
+      <div class="swiper-slide" id="tvseries1" onclick="setSeriesSession(this.id)">
+        <div class="imgBx">
+          <a href="#"><img src="images/Breaking Bad.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+        </div>
+        <div class="details">
+          <h1>Breaking Bad</h1>
+      </div>
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <!--<button id="btn" type="button" style="width: 100px; height: 60px; margin-left: 47%; background-color: #043783; color: white;">ADD</button>-->
+</div>
+
+<!--TV Series SLider END-->
+
+
+<!--Anime Slider Start-->
+<hr style="background-color: rgb(238, 255, 0);">
+<h1 style="text-align: center;" data-aos="fade-right"><a href="#" style="text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); font-weight: bold; color: greenyellow; text-align: center;">Anime</a></h1>
+<hr style="background-color: rgb(238, 255, 0);">
+<div class="wrapper">
+  <!--Movie Slider START-->
+  <div class="swiper-container" data-aos="fade-right">
+    <div class="swiper-wrapper" id="slider">
+      <div class="swiper-slide" id="anime1" onclick="setAnimeSession(this.id)">
+        <div class="imgBx">
+          <a href="#"><img src="images/Deadman Wonderland.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+        </div>
+        <div class="details">
+          <h1>Deadman Wonderland</h1>
+        </div>
+      </div>
+      <div class="swiper-slide" id="anime2" onclick="setAnimeSession(this.id)">
+          <div class="imgBx">
+            <a href="#"><img src="images/Attack on titans.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></a>
+          </div>
+          <div class="details">
+            <h1>Attack on Titan</h1>
+          </div>
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <!--<button id="btn" type="button" style="width: 100px; height: 60px; margin-left: 47%; background-color: #043783; color: white;">ADD</button>-->
+</div>
+
+
+<!--Anime Slider END-->
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+          <!--Swiper Script-->
+          <script>
+            var swiper = new Swiper('.swiper-container', {
+              effect: 'coverflow',
+              grabCursor: true,
+              centeredSlides: true,
+              slidesPerView: 'auto',
+              coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows : true,
+              },
+              pagination: {
+                el: '.swiper-pagination',
+              },
+            });
+          </script>
+          <script>
+            $(document).ready(function(){
+              $("#btn").click(function(){
+                var str = '<div class="swiper-slide"><div class="imgBx"><img src="images/FMA.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt=""></div><div class="details"><h6>Tom Clancys Rainbow Six Seige<br><span>Game</span></h6></div></div>'
+                $("#slider").append(str);
+              })
+            })
+            
+          </script>
+          <!--Swiper Script END-->
+    
+    
+    
+          <!--Animate On Scroll-->
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+          <script>
+            AOS.init({
+              offset: 300,
+              duration: 800
+            });
+          </script>
+          <!--Animate ON Scroll END-->
+
+
+
+
+
+
+
+
+
+      
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+    
+    <!--Firebase Initialization-->
+    <script src="js/firebase.js"></script>
+    <script src="js/authentication.js"></script>
+    <script src="js/setSession.js"></script>
+    <script src="js/database.js"></script>
+    <script>
+      var email = sessionStorage.getItem("email");
+      var displayName = sessionStorage.getItem("displayName");
+      if(displayName!= "null") {
+        document.getElementById("navbarDropdown").innerHTML = displayName;
+      }
+      else {
+        document.getElementById("navbarDropdown").innerHTML = email;
+      }
+    </script>
+
+
+
+
+<!--Footer Start-->
+<footer class="footer mt-auto py-3" style="background-color: #045de9; background-image: linear-gradient(315deg, #294b03 0%, #6aff07 74%);">
+  <div>
+    <p style="color:rgb(27, 26, 22);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); text-align: center; font-weight: bolder;">Created by: Crimsoncad3, KingSlayer, Zigsy</p>
+    <p style="color:rgb(27, 26, 22);text-shadow: 0 0 3px rgb(0, 220, 100), 0 0 5px rgb(0, 220, 100); text-align: center; font-weight: bolder;">© 2019 Copyright:&nbsp Hydra.Inc</p>
+  </div>
+</footer>
+<!--Footer End-->
+</body>
+</html>

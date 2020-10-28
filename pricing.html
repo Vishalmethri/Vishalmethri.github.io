@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<HTML LANG="EN">
+<HEAD>
+	<META CHARSET="UTF-8">
+	<TITLE>PRICING TABLE WITH HTML UNI-CODE</TITLE>
+	<LINK REL="stylesheet" href="css/style.css">
+</HEAD>
+<BODY style="background:rgb(10, 0, 97)">
+	<DIV CLASS="wrapper">
+		<DIV CLASS="single-price">
+			<H1>BASIC</H1>
+			<DIV class="price">
+				<H2>₹150</H2>
+			</DIV>
+			<DIV class="deals">
+				<H4>Movie Streaming</H4>
+				<H4>No TV-Series</H4>
+				<H4>No Anime</H4>
+				<H4>No Downloads</H4>
+			</DIV>
+			<script src="https://www.paypal.com/sdk/js?client-id=AZhrCMv11faTlqkITCkeOlsemhGK-RZVvkSvTSR1_qHwAs6dkWDD-gEECOdSoDCa938podXhZWBnY9hj&currency=INR"></script>
+    		<!--<div id="paypal-button-container"></div>-->
+
+   	 		<div id="paypal-button-container"></div>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                amount: {
+                    value: '150.00'
+                }
+                }]
+            });
+            },
+            onApprove: function(data, actions) {
+            // Capture the funds from the transaction
+            return actions.order.capture().then(function(details) {
+                // Show a success message to your buyer
+                //alert('Transaction completed by ' + details.payer.name.given_name);
+				window.location.href = "afterLogin.html";
+            });
+            }
+        }).render('#paypal-button-container');
+	</script>
+		</DIV>
+
+
+
+		<DIV CLASS="single-price">
+			<H1>STANDARD</H1>
+			<DIV class="price">
+				<H2>₹350</H2>
+			</DIV>
+			<DIV class="deals">
+				<H4>Movie Streaming</H4>
+				<H4>TV-Series Streaming</H4>
+				<H4>Movie and TV-Series Downloadable</H4>
+				<H4>No Anime</H4>
+			</DIV>
+			<!--<a href="#">Subscribe</a>-->
+			<div id="paypal-button-container1"></div>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                amount: {
+                    value: '350.00'
+                }
+                }]
+            });
+            },
+            onApprove: function(data, actions) {
+            // Capture the funds from the transaction
+            return actions.order.capture().then(function(details) {
+                // Show a success message to your buyer
+                //alert('Transaction completed by ' + details.payer.name.given_name);
+				window.location.href = "afterLogin.html";
+            });
+            }
+        }).render('#paypal-button-container1');
+    </script>
+		</DIV>
+
+
+
+		<DIV CLASS="single-price">
+			<H1>PREMIUM</H1>
+			<DIV class="price">
+				<H2>₹550</H2>
+			</DIV>
+			<DIV class="deals">
+				<H4>Movie Streaming</H4>
+				<H4>TV-Series Streaming</H4>
+				<H4>Anime Streaming</H4>
+				<H4>All Downloadable</H4>
+			</DIV>
+			<div id="paypal-button-container2"></div>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                amount: {
+                    value: '550.00'
+                }
+                }]
+            });
+            },
+            onApprove: function(data, actions) {
+            // Capture the funds from the transaction
+            return actions.order.capture().then(function(details) {
+                // Show a success message to your buyer
+                //alert('Transaction completed by ' + details.payer.name.given_name);
+				window.location.href = "afterLogin.html";
+            });
+            }
+        }).render('#paypal-button-container2');
+    </script>
+		</DIV>
+	</DIV>
+</BODY>
+</HTML>

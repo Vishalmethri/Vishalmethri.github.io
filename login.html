@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign-in</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+    <div class="login-div" style="margin-top: 3%;">
+        <div class="row">
+            <div class="logo"></div>
+        </div>
+        <div class="row center-align">
+            <h6 class="red-text">Sign in</h6>
+            <h6 class="red-text">Use your Hydra Account</h6>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="email" class="validate" id="email_input">
+                <label for="email_input" class="red-text">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="password" class="validate" id="password_input">
+                <label for="password_input" class="red-text">Password</label>
+                <div><a href="passwordReset.html" class="red-text"><b>Forgot password ?</b></a></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6"><a href="signup.html">Create an account</a></div>
+            <div class="col s6 right-align"><a onclick="signin()" class="waves-effect waves-light btn red">Sign In</a></div>
+        </div>
+        <div class="row">
+            <p class="center-align">or</p>
+            <a class="red-text black waves-effect waves-dark btn-large social-icon google" onclick="signInWithGoogle()">
+            <i class="fa fa-google"></i> Sign in with Google</a>
+        </div>
+        <!-- <div class="row">
+            <a class="indigo-text text-darken-4 white waves-effect waves-dark btn-large social-icon facebook" onclick="signInWithFacebook()">
+            <i class="fa fa-facebook"></i> Sign in with Facebook</a>
+        </div> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+
+<!--Firebase Initialization-->
+<script src="js/firebase.js"></script>
+<script src="js/authentication.js"></script>
+</body>
+</html>
